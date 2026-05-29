@@ -19,3 +19,11 @@ curl -X POST http://localhost:8000/classify \
 
 # Проверьте, что кеш слоёв работает: измените любую строку в main.py, пересоберите образ — шаг pip install не должен запускаться заново.
 Ссылка на скрин https://imgbox.com/cjsSxtMo
+
+# Opt-1 — Volumes: изменение поведения без пересборки
+Создайте рядом файл my_config.json с новыми порогами:
+{
+    "cold_max": 20,
+    "hot_min": 30
+}
+Ссылка на скрин https://imgbox.com/YCpniAz1
