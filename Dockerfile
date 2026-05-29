@@ -13,7 +13,8 @@ COPY . .
 # 2. добавил ENV MODEL_PATH
 ENV MODEL_PATH=/app/models/model.pkl
 
-EXPOSE 8080
+# 4. исправил с 8080 на 8000
+EXPOSE 8000
 
 # 3. добавил "--host", "0.0.0.0",
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
