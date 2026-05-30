@@ -16,5 +16,9 @@ ENV MODEL_PATH=/app/models/model.pkl
 # 4. исправил с 8080 на 8000
 EXPOSE 8000
 
+# 5 безопасность, замена root на appuser
+RUN useradd -m appuser
+USER appuser
+
 # 3. добавил "--host", "0.0.0.0",
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
