@@ -1,5 +1,7 @@
 # Dockerfile-temperature
 
+# Задания
+
 После исправлений:
 # Собрать образ
 docker build -t weather-hw:v1 .
@@ -27,3 +29,22 @@ curl -X POST http://localhost:8000/classify \
     "hot_min": 30
 }
 Ссылка на скрин https://imgbox.com/YCpniAz1
+
+# Opt-2 — Запуск не от root
+Добавьте в свой исправленный Dockerfile перед CMD:
+RUN useradd -m appuser
+USER appuser
+Ссылка на скрин https://imgbox.com/GnEOl8Xl
+
+# Opt-3 — Секреты в ENV
+Часть A — воспроизведите проблему
+Добавьте в ваш исправленный Dockerfile строку с «секретом»: 
+ENV API_KEY=supersecret-12345 
+Секрет виден в открытом виде в метаданных образа.
+Ссылка на скрин https://imgbox.com/VupjpPTJ
+
+Часть B — правильный способ
+Уберите ENV API_KEY=... из Dockerfile. Создайте файл .env рядом: 
+API_KEY=supersecret-12345
+
+в истории образа секрета больше нет, но внутри контейнера переменная всё равно доступна https://imgbox.com/5B1gwKR0
