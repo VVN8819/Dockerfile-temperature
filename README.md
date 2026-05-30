@@ -13,15 +13,16 @@
 - Проверка секрета в истории образа (docker history)
 
 **Структура:**
-    Dockerfile - Конфигурация Docker
-    main.py - FastAPI приложение
-    config.json - Пороги температур (cold_max, hot_min)
-    requirements.txt - Python зависимости
-    .env - Переменные окружения (не коммитить!)
-    my_config.json - Кастомный конфиг для volume mounting
-    .gitignore - Игнорируемые файлы для Git
-    LICENSE - Лицензия проекта
-    README.md - Описание проекта
+
+    - Dockerfile - Конфигурация Docker
+    - main.py - FastAPI приложение
+    - config.json - Пороги температур (cold_max, hot_min)
+    - requirements.txt - Python зависимости
+    - .env - Переменные окружения (не коммитить!)
+    - my_config.json - Кастомный конфиг для volume mounting
+    - .gitignore - Игнорируемые файлы для Git
+    - LICENSE - Лицензия проекта
+    - README.md - Описание проекта
 
 # Задания
 
@@ -42,7 +43,7 @@ curl -X POST http://localhost:8000/classify \
 {"category": "hot", "temperature": 35.0}
 Ссылка на скрин https://imgbox.com/dIe0hZ7M
 
-# Проверьте, что кеш слоёв работает: измените любую строку в main.py, пересоберите образ — шаг pip install не должен запускаться заново.
+**Проверьте, что кеш слоёв работает: измените любую строку в main.py, пересоберите образ — шаг pip install не должен запускаться заново.**
 Ссылка на скрин https://imgbox.com/cjsSxtMo
 
 # Opt-1 — Volumes: изменение поведения без пересборки
