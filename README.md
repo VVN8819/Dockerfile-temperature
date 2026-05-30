@@ -1,4 +1,27 @@
 # Dockerfile-temperature
+Учебный проект на тему "Dockerfile: найти и исправить".
+
+**Цель:** исправление Dockerfile
+
+**Проект демонстрирует:**
+- Собор образа, запуск контейнера
+- Выявление и исправление ошибок в Dockerfile
+- Volumes: изменение поведения без пересборки через файл my_config.json с новыми порогами
+- Запуск не от root (RUN useradd -m appuser)
+- Секреты в ENV (ENV API_KEY=... в Dockerfile)
+- Передача секретов только при запуске (--env-file .env)
+- Проверка секрета в истории образа (docker history)
+
+**Структура:**
+    Dockerfile - Конфигурация Docker
+    main.py - FastAPI приложение
+    config.json - Пороги температур (cold_max, hot_min)
+    requirements.txt - Python зависимости
+    .env - Переменные окружения (не коммитить!)
+    my_config.json - Кастомный конфиг для volume mounting
+    .gitignore - Игнорируемые файлы для Git
+    LICENSE - Лицензия проекта
+    README.md - Описание проекта
 
 # Задания
 
